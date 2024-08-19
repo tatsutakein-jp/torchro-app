@@ -1,0 +1,110 @@
+name: torchro
+
+packages:
+  - app/*
+  - core/*
+  - feature/*
+
+ide:
+  intellij:
+    enabled: false
+
+command:
+  bootstrap:
+    hooks:
+      post: melos run gen:app
+
+scripts:
+  # gen
+  gen:
+    exec: dart run build_runner build --delete-conflicting-outputs
+    description: Run build_runner.
+    packageFilters:
+      dependsOn: "build_runner"
+  gen:watch:
+    exec: dart run build_runner watch --delete-conflicting-outputs
+    description: Run build_runner.
+    packageFilters:
+      dependsOn: "build_runner"
+  gen:app:
+    run: |
+      melos exec --scope="app" \
+        dart run build_runner build --delete-conflicting-outputs
+    description: Run build_runner.
+  gen:l10n:
+    run: flutter gen-l10n
+    exec:
+      concurrency: 1
+    description: Generate l10n.
+    packageFilters:
+      flutter: true
+      fileExists: "l10n.yaml"
+  fix:
+    exec: dart fix --apply lib
+    description: Run dart fix.
+    packageFilters:
+      flutter: true
+      dirExists: lib
+  fix:check:
+    exec: dart fix --dry-run lib
+    description: Check dart fix.
+    packageFilters:
+      flutter: true
+      dirExists: lib
+  format:
+    exec: dart format lib
+    description: Run format.
+    packageFilters:
+      flutter: true
+      dirExists: lib
+  format:check:
+    exec: dart format lib --output=none --set-exit-if-changed
+    description: Check format.
+    packageFilters:
+      flutter: true
+      dirExists: lib
+
+  test:
+    run: very_good test --recursive --coverage
+    exec:
+      concurrency: 10
+      failFast: true
+    description: Run test.
+    packageFilters:
+      dirExists: test
+
+  # upgrade
+  upgrade:
+    description: dart pub upgrade & flutter pub upgrade.
+    concurrency: 1
+    steps:
+      - melos upgrade:dart
+      - melos upgrade:flutter
+  upgrade:dart:
+    exec: dart pub upgrade
+    concurrency: 1
+    description: dart pub upgrade.
+    packageFilters:
+      flutter: false
+  upgrade:flutter:
+    exec: flutter pub upgrade
+    concurrency: 1
+    description: flutter pub upgrade.
+    packageFilters:
+      flutter: true
+
+  # ci
+  ci:gen:
+    description: generate codes.
+    concurrency: 1
+    steps:
+      - melos gen
+      - melos gen:l10n
+  ci:test:
+    run: very_good test --recursive --coverage
+    exec:
+      concurrency: 1
+      failFast: true
+    description: Run test.
+    packageFilters:
+      dirExists: test

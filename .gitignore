@@ -1,0 +1,50 @@
+# Miscellaneous
+.DS_Store
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/*
+# Keep the project icon.
+!/.idea/icon.png
+# Keep the run configurations.
+!/.idea/runConfigurations/flutter_run_app_mobile_dev.xml
+!/.idea/runConfigurations/flutter_run_app_mobile_stg.xml
+!/.idea/runConfigurations/flutter_run_app_mobile_prod.xml
+!/.idea/runConfigurations/flutter_run_app_catalog.xml
+!/.idea/runConfigurations/make_bootstrap.xml
+!/.idea/runConfigurations/make_clean.xml
+!/.idea/runConfigurations/make_docs.xml
+
+# Editor User Setting Files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+*.code-workspace
+!default.code-workspace
+.classpath
+.project
+
+# dependencies
+node_modules
+
+# Files and directories created by pub
+.dart_tool/
+
+# melos
+pubspec_overrides.yaml
+
+# mason
+.mason
+# https://github.com/felangel/mason/issues/947
+mason-lock.json
+
+# Coverage
+coverage/
+
+# Firebase
+.firebase

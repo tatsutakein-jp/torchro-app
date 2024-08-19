@@ -1,0 +1,186 @@
+# Default labels
+- name: "bug"
+  color: "d73a4a"
+  description: "Something isn't working"
+
+- name: "dependencies"
+  color: "1d76db"
+  description: "Pull requests that update a dependency file"
+
+- name: "DO NOT MERGE"
+  color: "b60205"
+
+- name: "duplicate"
+  color: "cfd8d7"
+  description: "This issue or pull request already exists"
+
+- name: "enhancement"
+  color: "a2eeef"
+  description: "New feature or request"
+
+- name: "good first issue"
+  color: "fe9b9c"
+  description: "Good for newcomers"
+
+- name: "help wanted"
+  color: "008672"
+  description: "Extra attention is needed"
+
+- name: "main task"
+  color: "2A65D7"
+
+- name: "ignore for release"
+  color: "bfd4f2"
+  description: "Exclude from Release Notes"
+
+- name: "wontfix"
+  color: "ffffff"
+  description: "This will not be worked on"
+
+- name: "work in progress"
+  color: "e5d19e"
+
+# Type labels
+- name: "type:feature"
+  color: "ededed"
+  description: "A new feature"
+  from_name: "type/feature"
+
+- name: "type:fix"
+  color: "ededed"
+  description: "A bug fix"
+  from_name: "type/fix"
+
+- name: "type:docs"
+  color: "ededed"
+  description: "Documentation only changes"
+  from_name: "type/docs"
+
+- name: "type:style"
+  color: "ededed"
+  description: "Changes that do not affect the meaning of the code"
+  from_name: "type/style"
+
+- name: "type:refactor"
+  color: "ededed"
+  description: "A code change that neither fixes a bug nor adds a feature"
+  from_name: "type/refactor"
+
+- name: "type:perf"
+  color: "ededed"
+  description: "A code change that improves performance"
+  from_name: "type/perf"
+
+- name: "type:test"
+  color: "ededed"
+  description: "Adding missing tests or correcting existing tests"
+  from_name: "type/test"
+
+- name: "type:build"
+  color: "ededed"
+  description: "Changes that affect the build system or external dependencies"
+  from_name: "type/build"
+
+- name: "type:ci"
+  color: "ededed"
+  description: "Changes to our CI configuration files and scripts"
+  from_name: "type/ci"
+
+- name: "type:chore"
+  color: "ededed"
+  description: "Other changes that don't modify src or test files"
+  from_name: "type/chore"
+
+- name: "type:revert"
+  color: "ededed"
+  description: "Reverts a previous commit"
+  from_name: "type/revert"
+
+# <!-- This is an auto-generated label -->
+- name: package:app/backend
+  color: 63256f
+  description: Backend app development
+
+- name: package:app/catalog
+  color: d4f227
+  description: Catalog app development
+
+- name: package:app/mobile
+  color: 0c2b70
+  description: Mobile app package
+
+- name: package:core/analytics
+  color: 0b2ebd
+  description: core analytics package
+
+- name: package:core/authenticator
+  color: b07b63
+  description: core authenticator package
+
+- name: package:core/common
+  color: e99695
+  description: core common package
+
+- name: package:core/data
+  color: 50D413
+  description: core data package
+
+- name: package:core/database
+  color: 90bf94
+  description: core database package
+
+- name: package:core/datastore
+  color: 1997D2
+  description: core datastore package
+
+- name: package:core/designsystem
+  color: '936116'
+  description: core designsystem package
+
+- name: package:core/domain
+  color: DC79FD
+  description: core domain package
+
+- name: package:core/model
+  color: D1A70E
+  description: core model package
+
+- name: package:core/network
+  color: 630D81
+  description: core network package
+
+- name: package:core/network_model
+  color: f92ea6
+  description: core network_model package
+
+- name: package:core/testing
+  color: '667168'
+  description: core testing package
+
+- name: package:core/ui
+  color: b1ade8
+  description: core ui package
+
+- name: package:feature/auth
+  color: 9422a7
+  description: feature auth package
+
+- name: package:feature/contact
+  color: fb41af
+  description: feature contact package
+
+- name: package:feature/feed
+  color: 919d8f
+  description: feature feed package
+
+- name: package:feature/home
+  color: 3bc0ec
+  description: feature home package
+
+- name: package:feature/miscellaneous
+  color: 5cce7b
+  description: feature miscellaneous package
+
+- name: package:feature/settings
+  color: '626220'
+  description: feature settings package

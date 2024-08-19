@@ -1,0 +1,118 @@
+name: 'Checks'
+
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    uses: ./.github/workflows/wc-changes.yml
+
+  action:
+    runs-on: ubuntu-22.04
+    needs: changes
+    if: needs.changes.outputs.action == 'true'
+    steps:
+      # https://github.com/marketplace/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+      # https://github.com/marketplace/actions/create-github-app-token
+      - name: Create GitHub App Token
+        uses: actions/create-github-app-token@31c86eb3b33c9b601a1f60f98dcbfd1d70f379b4 # v1.10.3
+        id: app-token
+        with:
+          app-id: ${{ vars.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
+      # https://github.com/marketplace/actions/actionlint-with-reviewdog
+      - uses: reviewdog/action-actionlint@4f8f9963ca57a41e5fd5b538dd79dbfbd3e0b38a # v1.54.0
+        with:
+          github_token: ${{ steps.app-token.outputs.token }}
+          fail_on_error: true
+          filter_mode: nofilter
+          level: error
+          reporter: github-pr-review
+
+  cache-deps:
+    runs-on: ubuntu-22.04
+    needs: changes
+    if: needs.changes.outputs.dependencies == 'true'
+    timeout-minutes: 10
+
+    steps:
+      # https://github.com/marketplace/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+      # https://github.com/marketplace/actions/mise-action
+      - name: mise action
+        uses: jdx/mise-action@d6e32c1796099e0f1f3ac741c220a8b7eae9e5dd # v2.0.6
+
+      - name: setup pub
+        uses: ./.github/actions/setup-pub
+
+  analyze:
+    runs-on: ubuntu-22.04
+    needs:
+      - changes
+      - cache-deps
+    if: needs.changes.outputs.analyze == 'true'
+    timeout-minutes: 10
+
+    steps:
+      # https://github.com/marketplace/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+      # https://github.com/marketplace/actions/mise-action
+      - name: mise action
+        uses: jdx/mise-action@d6e32c1796099e0f1f3ac741c220a8b7eae9e5dd # v2.0.6
+
+      - name: setup pub
+        uses: ./.github/actions/setup-pub
+
+      - name: Run analyze
+        run: melos analyze
+
+  test:
+    runs-on: ubuntu-22.04
+    needs:
+      - changes
+      - cache-deps
+    if: needs.changes.outputs.test == 'true'
+    timeout-minutes: 10
+
+    steps:
+      # https://github.com/marketplace/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+      # https://github.com/marketplace/actions/mise-action
+      - name: mise action
+        uses: jdx/mise-action@d6e32c1796099e0f1f3ac741c220a8b7eae9e5dd # v2.0.6
+
+      - name: setup pub
+        uses: ./.github/actions/setup-pub
+
+      - name: Setup very_good_cli
+        run: dart pub global activate very_good_cli
+
+      - name: Run test
+        run: melos run ci:test --no-select
+
+  status-check:
+    runs-on: ubuntu-22.04
+    needs:
+      - action
+      - analyze
+      - test
+    permissions: { }
+    if: failure()
+    steps:
+      - run: exit 1

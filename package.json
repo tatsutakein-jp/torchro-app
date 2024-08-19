@@ -1,0 +1,14 @@
+{
+  "name": "torchro-app",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "clean": "git clean -xdf node_modules"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.4.0",
+    "@commitlint/config-conventional": "19.2.2",
+    "lefthook": "1.7.12"
+  }
+}

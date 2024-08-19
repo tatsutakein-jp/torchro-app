@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "289717511027",
+    "project_id": "torchro-fit-dev",
+    "storage_bucket": "torchro-fit-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289717511027:android:879444e2dce7e2f817db06",
+        "android_client_info": {
+          "package_name": "fit.torchro.app.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrYJ24t3BwN-3N6Omm42G0AISKeOKUjrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,49 @@
+name: feature_miscellaneous
+description: "This package provides miscellaneous features."
+version: 1.0.0
+publish_to: "none"
+
+environment:
+  sdk: 3.5.0
+  flutter: 3.24.0
+
+dependencies:
+  core_common:
+    path: ../../core/common
+  core_designsystem:
+    path: ../../core/designsystem
+  core_domain:
+    path: ../../core/domain
+  core_model:
+    path: ../../core/model
+  core_ui:
+    path: ../../core/ui
+  flutter:
+    sdk: flutter
+  flutter_hooks: 0.20.5
+  flutter_localizations:
+    sdk: flutter
+  freezed_annotation: 2.4.4
+  hooks_riverpod: 2.5.1
+  intl: 0.19.0
+  riverpod_annotation: 2.3.5
+
+dev_dependencies:
+  build_runner: 2.4.12
+  flutter_test:
+    sdk: flutter
+  freezed: 2.5.7
+  riverpod_generator: 2.4.2
+  yumemi_lints: 2.2.0
+
+dependency_overrides:
+  # workaround
+  # Note: meta is pinned to version 1.12.0 by flutter_localizations from the flutter SDK.
+  # See https://dart.dev/go/sdk-version-pinning for details.
+  # Because analyzer >=6.5.1 depends on meta ^1.15.0 and no versions of analyzer match >6.5.0 <6.5.1, analyzer >6.5.0 requires meta ^1.15.0.
+  # And because analyzer 6.5.0 depends on meta ^1.14.0, analyzer >=6.5.0 requires meta ^1.14.0.
+  # And because freezed 2.5.4 depends on analyzer ^6.5.0 and every version of flutter_localizations from sdk depends on meta 1.12.0, freezed 2.5.4 is incompatible with flutter_localizations from sdk.
+  # So, because feature_sample depends on both flutter_localizations from sdk and freezed 2.5.4, version solving failed.
+  meta: 1.15.0
+
+flutter:
