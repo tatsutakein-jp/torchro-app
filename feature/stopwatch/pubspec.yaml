@@ -1,0 +1,33 @@
+name: feature_stopwatch
+description: "This package provides stopwatch features."
+version: 1.0.0
+publish_to: "none"
+
+environment:
+  sdk: 3.5.0
+  flutter: 3.24.0
+
+dependencies:
+  core_common:
+    path: ../../core/common
+  core_designsystem:
+    path: ../../core/designsystem
+  core_domain:
+    path: ../../core/domain
+  core_model:
+    path: ../../core/model
+  core_ui:
+    path: ../../core/ui
+  flutter:
+    sdk: flutter
+  flutter_hooks: 0.20.5
+  flutter_localizations:
+    sdk: flutter
+  go_router: 14.2.3
+  hooks_riverpod: 2.5.1
+  intl: 0.19.0
+
+dev_dependencies:
+  yumemi_lints: 2.2.0
+
+flutter:
