@@ -103,17 +103,23 @@ abstract class L10n {
   /// **'ホーム'**
   String get bottomNavigationBarHome;
 
-  /// No description provided for @bottomNavigationBarQuest.
+  /// No description provided for @bottomNavigationBarTimer.
   ///
   /// In ja, this message translates to:
-  /// **'クエスト'**
-  String get bottomNavigationBarQuest;
+  /// **'タイマー'**
+  String get bottomNavigationBarTimer;
 
-  /// No description provided for @bottomNavigationBarAccount.
+  /// No description provided for @bottomNavigationBarStopwatch.
   ///
   /// In ja, this message translates to:
-  /// **'アカウント'**
-  String get bottomNavigationBarAccount;
+  /// **'ストップウォッチ'**
+  String get bottomNavigationBarStopwatch;
+
+  /// No description provided for @bottomNavigationBarMiscellaneous.
+  ///
+  /// In ja, this message translates to:
+  /// **'その他'**
+  String get bottomNavigationBarMiscellaneous;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

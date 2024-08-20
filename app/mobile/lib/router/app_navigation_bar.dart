@@ -27,12 +27,16 @@ class AppNavigationBar extends StatelessWidget {
             label: l10n.bottomNavigationBarHome,
           ),
           NavigationDestination(
-            icon: const Icon(Icons.explore_outlined),
-            label: l10n.bottomNavigationBarQuest,
+            icon: const Icon(Icons.hourglass_bottom_outlined),
+            label: l10n.bottomNavigationBarTimer,
           ),
           NavigationDestination(
-            icon: const Icon(Icons.account_circle_outlined),
-            label: l10n.bottomNavigationBarAccount,
+            icon: const Icon(Icons.timer_outlined),
+            label: l10n.bottomNavigationBarStopwatch,
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.miscellaneous_services_outlined),
+            label: l10n.bottomNavigationBarMiscellaneous,
           ),
         ],
         onDestinationSelected: (index) {

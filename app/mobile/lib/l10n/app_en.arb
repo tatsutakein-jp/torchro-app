@@ -1,5 +1,6 @@
 {
   "bottomNavigationBarHome": "Home",
-  "bottomNavigationBarQuest": "Quest",
-  "bottomNavigationBarAccount": "Account"
+  "bottomNavigationBarTimer": "Timer",
+  "bottomNavigationBarStopwatch": "Stopwatch",
+  "bottomNavigationBarMiscellaneous": "Miscellaneous"
 }

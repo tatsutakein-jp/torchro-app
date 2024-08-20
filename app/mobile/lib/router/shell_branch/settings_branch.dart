@@ -1,6 +1,5 @@
 part of 'package:app_mobile/router/app_router.dart';
 
-/// TypedStatefulShellBranch for feature_settings
 const settingsBranch = TypedStatefulShellBranch<SettingsBranch>(
   routes: [
     // セッティングタブ内でのpush先はここのroutesにネストしていく

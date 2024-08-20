@@ -10,8 +10,11 @@ class L10nJa extends L10n {
   String get bottomNavigationBarHome => 'ホーム';
 
   @override
-  String get bottomNavigationBarQuest => 'クエスト';
+  String get bottomNavigationBarTimer => 'タイマー';
 
   @override
-  String get bottomNavigationBarAccount => 'アカウント';
+  String get bottomNavigationBarStopwatch => 'ストップウォッチ';
+
+  @override
+  String get bottomNavigationBarMiscellaneous => 'その他';
 }

@@ -10,8 +10,11 @@ class L10nEn extends L10n {
   String get bottomNavigationBarHome => 'Home';
 
   @override
-  String get bottomNavigationBarQuest => 'Quest';
+  String get bottomNavigationBarTimer => 'Timer';
 
   @override
-  String get bottomNavigationBarAccount => 'Account';
+  String get bottomNavigationBarStopwatch => 'Stopwatch';
+
+  @override
+  String get bottomNavigationBarMiscellaneous => 'Miscellaneous';
 }

@@ -33,12 +33,22 @@ dependencies:
   envied: 0.5.4+1
   feature_auth:
     path: ../../feature/auth
+  feature_contact:
+    path: ../../feature/contact
   feature_feed:
     path: ../../feature/feed
   feature_home:
     path: ../../feature/home
+  feature_miscellaneous:
+    path: ../../feature/miscellaneous
+  feature_onboarding:
+    path: ../../feature/onboarding
   feature_settings:
     path: ../../feature/settings
+  feature_stopwatch:
+    path: ../../feature/stopwatch
+  feature_timer:
+    path: ../../feature/timer
   firebase_analytics: 11.2.1
   firebase_auth: 5.1.4
   firebase_core: 3.3.0

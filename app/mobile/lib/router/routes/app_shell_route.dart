@@ -3,6 +3,8 @@ part of 'package:app_mobile/router/app_router.dart';
 @TypedStatefulShellRoute<AppShellRouteData>(
   branches: <TypedStatefulShellBranch<StatefulShellBranchData>>[
     homeBranch,
+    timerBranch,
+    stopwatchBranch,
     settingsBranch,
   ],
 )

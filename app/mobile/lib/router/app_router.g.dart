@@ -38,6 +38,24 @@ RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
           ],
         ),
         StatefulShellBranchData.$branch(
+          navigatorKey: TimerBranch.$navigatorKey,
+          routes: [
+            GoRouteData.$route(
+              path: '/timers',
+              factory: $TimerRouteExtension._fromState,
+            ),
+          ],
+        ),
+        StatefulShellBranchData.$branch(
+          navigatorKey: StopwatchBranch.$navigatorKey,
+          routes: [
+            GoRouteData.$route(
+              path: '/stopwatches',
+              factory: $StopwatchRouteExtension._fromState,
+            ),
+          ],
+        ),
+        StatefulShellBranchData.$branch(
           navigatorKey: SettingsBranch.$navigatorKey,
           routes: [
             GoRouteData.$route(
@@ -108,6 +126,41 @@ extension $FeedDetailRouteExtension on FeedDetailRoute {
 
   String get location => GoRouteData.$location(
         '/home/feeds/${Uri.encodeComponent(feedId)}',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $TimerRouteExtension on TimerRoute {
+  static TimerRoute _fromState(GoRouterState state) => const TimerRoute();
+
+  String get location => GoRouteData.$location(
+        '/timers',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $StopwatchRouteExtension on StopwatchRoute {
+  static StopwatchRoute _fromState(GoRouterState state) =>
+      const StopwatchRoute();
+
+  String get location => GoRouteData.$location(
+        '/stopwatches',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -198,7 +251,7 @@ extension $AuthRouteExtension on AuthRoute {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'7142c25a7c161aab4ee408b7bd970c663f0f6550';
+String _$routerHash() => r'ab57730c41b521c2eb5d44e654a8f3b75829d9ec';
 
 /// See also [router].
 @ProviderFor(router)

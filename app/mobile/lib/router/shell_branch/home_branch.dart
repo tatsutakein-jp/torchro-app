@@ -1,9 +1,7 @@
 part of 'package:app_mobile/router/app_router.dart';
 
-/// TypedStatefulShellBranch for feature_home
 const homeBranch = TypedStatefulShellBranch<HomeBranch>(
   routes: [
-    // ホームタブ内でのpush先はここのroutesにネストしていく
     TypedGoRoute<HomeRoute>(
       path: AppPagePath.home,
       routes: [

@@ -369,6 +369,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  feature_contact:
+    dependency: "direct main"
+    description:
+      path: "../../feature/contact"
+      relative: true
+    source: path
+    version: "1.0.0"
   feature_feed:
     dependency: "direct main"
     description:
@@ -383,10 +390,38 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  feature_miscellaneous:
+    dependency: "direct main"
+    description:
+      path: "../../feature/miscellaneous"
+      relative: true
+    source: path
+    version: "1.0.0"
+  feature_onboarding:
+    dependency: "direct main"
+    description:
+      path: "../../feature/onboarding"
+      relative: true
+    source: path
+    version: "1.0.0"
   feature_settings:
     dependency: "direct main"
     description:
       path: "../../feature/settings"
+      relative: true
+    source: path
+    version: "1.0.0"
+  feature_stopwatch:
+    dependency: "direct main"
+    description:
+      path: "../../feature/stopwatch"
+      relative: true
+    source: path
+    version: "1.0.0"
+  feature_timer:
+    dependency: "direct main"
+    description:
+      path: "../../feature/timer"
       relative: true
     source: path
     version: "1.0.0"
