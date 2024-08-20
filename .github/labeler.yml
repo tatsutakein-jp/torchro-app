@@ -130,6 +130,18 @@ labels:
     files:
       - feature/miscellaneous/.+
 
+  - label: package:feature/onboarding
+    files:
+      - feature/onboarding/.+
+
   - label: package:feature/settings
     files:
       - feature/settings/.+
+
+  - label: package:feature/stopwatch
+    files:
+      - feature/stopwatch/.+
+
+  - label: package:feature/timer
+    files:
+      - feature/timer/.+

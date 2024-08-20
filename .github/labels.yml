@@ -181,6 +181,18 @@
   color: 5cce7b
   description: feature miscellaneous package
 
+- name: package:feature/onboarding
+  color: 94ec56
+  description: feature onboarding package
+
 - name: package:feature/settings
   color: '626220'
   description: feature settings package
+
+- name: package:feature/stopwatch
+  color: fcde49
+  description: feature stopwatch package
+
+- name: package:feature/timer
+  color: b71d30
+  description: feature timer package
