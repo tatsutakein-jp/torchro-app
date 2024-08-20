@@ -10,26 +10,8 @@ class L10nJa extends L10n {
   String get onboarding => 'オンボーディング';
 
   @override
-  String get notification => 'おしらせ';
+  String get welcome => 'ようこそ';
 
   @override
-  String get schedule => 'スケジュール';
-
-  @override
-  String get today => '今日';
-
-  @override
-  String get tomorrow => '明日';
-
-  @override
-  String get menu => 'メニュー';
-
-  @override
-  String get account => 'アカウント';
-
-  @override
-  String get anonymous => '氏名未設定';
-
-  @override
-  String get nonSchedule => '本日、明日の予定はありません';
+  String get agreeAndStart => '同意して始める';
 }

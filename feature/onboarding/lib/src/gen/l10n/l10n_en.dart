@@ -10,26 +10,8 @@ class L10nEn extends L10n {
   String get onboarding => 'Onboarding';
 
   @override
-  String get notification => 'Notification';
+  String get welcome => 'Welcome';
 
   @override
-  String get schedule => 'Schedule';
-
-  @override
-  String get today => 'Today';
-
-  @override
-  String get tomorrow => 'Tomorrow';
-
-  @override
-  String get menu => 'Menu';
-
-  @override
-  String get account => 'Account';
-
-  @override
-  String get anonymous => 'Anonymous';
-
-  @override
-  String get nonSchedule => 'I have no plans for today and tomorrow';
+  String get agreeAndStart => 'Agree and Start';
 }

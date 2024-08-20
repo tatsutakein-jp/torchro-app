@@ -1,6 +1,7 @@
 /// アプリ内で使用するページのパス
 final class AppPagePath {
   static const auth = '/auth';
+  static const onboarding = '/onboarding';
   static const home = '/home';
   static const timer = '/timers';
   static const stopwatch = '/stopwatches';
@@ -11,8 +12,8 @@ final class AppPagePath {
   static const feeds = '/feeds';
 }
 
-/// 認証済みであることが前提のパス
-const authorizedPaths = [
+/// 同意済みであることが前提のパス
+const agreedPaths = [
   AppPagePath.home,
   AppPagePath.timer,
   AppPagePath.stopwatch,

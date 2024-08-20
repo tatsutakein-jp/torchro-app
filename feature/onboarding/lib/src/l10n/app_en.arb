@@ -1,11 +1,5 @@
 {
   "onboarding": "Onboarding",
-  "notification": "Notification",
-  "schedule": "Schedule",
-  "today": "Today",
-  "tomorrow": "Tomorrow",
-  "menu": "Menu",
-  "account": "Account",
-  "anonymous": "Anonymous",
-  "nonSchedule": "I have no plans for today and tomorrow"
+  "welcome": "Welcome",
+  "agreeAndStart": "Agree and Start"
 }

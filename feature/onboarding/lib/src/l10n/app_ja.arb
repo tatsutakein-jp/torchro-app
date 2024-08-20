@@ -1,11 +1,5 @@
 {
   "onboarding": "オンボーディング",
-  "notification": "おしらせ",
-  "schedule": "スケジュール",
-  "today": "今日",
-  "tomorrow": "明日",
-  "menu": "メニュー",
-  "account": "アカウント",
-  "anonymous": "氏名未設定",
-  "nonSchedule": "本日、明日の予定はありません"
+  "welcome": "ようこそ",
+  "agreeAndStart": "同意して始める"
 }

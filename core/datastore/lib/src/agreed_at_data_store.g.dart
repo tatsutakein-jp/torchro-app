@@ -1,28 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_settings_repository.dart';
+part of 'agreed_at_data_store.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userSettingsRepositoryHash() =>
-    r'a03fb148313a5a1671715e340716636f587c8db9';
+String _$agreedAtDataStoreHash() => r'570d8d0e4c6a0f665c0e85f844355f8e85b4a8fc';
 
-/// See also [userSettingsRepository].
-@ProviderFor(userSettingsRepository)
-final userSettingsRepositoryProvider =
-    AutoDisposeProvider<UserSettingsRepository>.internal(
-  userSettingsRepository,
-  name: r'userSettingsRepositoryProvider',
+/// See also [agreedAtDataStore].
+@ProviderFor(agreedAtDataStore)
+final agreedAtDataStoreProvider =
+    AutoDisposeProvider<AgreedAtDataStore>.internal(
+  agreedAtDataStore,
+  name: r'agreedAtDataStoreProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$userSettingsRepositoryHash,
+      : _$agreedAtDataStoreHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef UserSettingsRepositoryRef
-    = AutoDisposeProviderRef<UserSettingsRepository>;
+typedef AgreedAtDataStoreRef = AutoDisposeProviderRef<AgreedAtDataStore>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
