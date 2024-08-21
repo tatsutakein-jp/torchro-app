@@ -1,0 +1,94 @@
+name: 'Correct codes by auto generation'
+
+on:
+  workflow_call:
+    inputs:
+      gh-app-id:
+        required: true
+        type: string
+    secrets:
+      gh-app-private-key:
+        required: true
+
+jobs:
+  gen:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+
+    steps:
+      # https://github.com/marketplace/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+      # https://github.com/marketplace/actions/mise-action
+      - name: mise action
+        uses: jdx/mise-action@d6e32c1796099e0f1f3ac741c220a8b7eae9e5dd # v2.0.6
+
+      - name: setup pub
+        uses: ./.github/actions/setup-pub
+
+      - name: Run Melos Gen
+        run: melos ci:gen
+
+      - name: Check for file changes
+        id: diff
+        run: |
+          if git diff --quiet -- '*.dart'; then
+            echo "changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # https://github.com/marketplace/actions/create-github-app-token
+      - name: Create GitHub App Token
+        if: steps.diff.outputs.changes == 'true'
+        uses: actions/create-github-app-token@31c86eb3b33c9b601a1f60f98dcbfd1d70f379b4 # v1.10.3
+        id: app-token
+        with:
+          app-id: ${{ inputs.gh-app-id }}
+          private-key: ${{ secrets.gh-app-private-key }}
+
+      # https://github.com/marketplace/actions/github-script
+      - name: Commit and push changes
+        if: steps.diff.outputs.changes == 'true'
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
+          script: |
+            const { readFileSync } = require('fs');
+            const { resolve } = require('path');
+            const { execSync } = require('child_process');
+
+            const changedFiles = execSync('git diff --name-only')
+              .toString()
+              .split('\n')
+              .filter(Boolean);
+
+            const branch = context.payload.pull_request.head.ref;
+            const { data: parent } = await github.rest.git.getRef({
+              ...context.repo,
+              ref: `heads/${branch}`,
+            });
+
+            const tree = await github.rest.git.createTree({
+              ...context.repo,
+              base_tree: parent.object.sha,
+              tree: changedFiles.map(path => ({
+                path,
+                mode: '100644',
+                content: readFileSync(resolve(process.cwd(), path), 'utf8')
+              }))
+            });
+
+            const commit = await github.rest.git.createCommit({
+              ...context.repo,
+              message: "chore(gen): auto correct some files",
+              tree: tree.data.sha,
+              parents: [parent.object.sha]
+            });
+
+            await github.rest.git.updateRef({
+              ...context.repo,
+              ref: `heads/${branch}`,
+              sha: commit.data.sha
+            });

@@ -1,0 +1,91 @@
+name: 'Slash Command'
+
+on:
+  issue_comment:
+    types:
+      - created
+
+concurrency:
+  group: slash-command-${{ github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  ########################################
+  # Catalog
+  ########################################
+  catalog-command:
+    name: Catalog Command
+    runs-on: ubuntu-22.04
+    outputs:
+      continue: ${{ steps.catalog.outputs.continue }}
+    steps:
+      # https://github.com/marketplace/actions/create-github-app-token
+      - name: Create GitHub App Token
+        uses: actions/create-github-app-token@31c86eb3b33c9b601a1f60f98dcbfd1d70f379b4 # v1.10.3
+        id: app-token
+        with:
+          app-id: ${{ vars.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
+      # https://github.com/marketplace/actions/command-action
+      - name: Catalog
+        id: catalog
+        uses: github/command@a0f8c9c9a16aad0cced91b2b7693de599d4093a3 # v1.2.1
+        with:
+          github_token: ${{ steps.app-token.outputs.token }}
+          command: /catalog
+          reaction: "eyes"
+          allowed_contexts: "pull_request"
+          skip_ci: "true"
+          skip_reviews: "true"
+
+  catalog:
+    needs: catalog-command
+    if: ${{ needs.catalog-command.outputs.continue == 'true' }}
+    name: Catalog
+    uses: ./.github/workflows/wc-catalog-preview.yml
+    with:
+      gh-app-id: ${{ vars.BOT_APP_ID }}
+    secrets:
+      cloudflare-account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      cloudflare-api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      gh-app-private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
+  ########################################
+  # Gen
+  ########################################
+  gen-command:
+    name: Gen Command
+    runs-on: ubuntu-22.04
+    outputs:
+      continue: ${{ steps.gen-command.outputs.continue }}
+    steps:
+      # https://github.com/marketplace/actions/create-github-app-token
+      - name: Create GitHub App Token
+        uses: actions/create-github-app-token@31c86eb3b33c9b601a1f60f98dcbfd1d70f379b4 # v1.10.3
+        id: app-token
+        with:
+          app-id: ${{ vars.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
+      # https://github.com/marketplace/actions/command-action
+      - name: Gen Command
+        id: gen-command
+        uses: github/command@a0f8c9c9a16aad0cced91b2b7693de599d4093a3 # v1.2.1
+        with:
+          github_token: ${{ steps.app-token.outputs.token }}
+          command: /gen
+          reaction: "eyes"
+          allowed_contexts: "pull_request"
+          skip_ci: "true"
+          skip_reviews: "true"
+
+  gen:
+    needs: gen-command
+    if: ${{ needs.gen-command.outputs.continue == 'true' }}
+    name: Gen
+    uses: ./.github/workflows/wc-auto-correct.yml
+    with:
+      gh-app-id: ${{ vars.BOT_APP_ID }}
+    secrets:
+      gh-app-private-key: ${{ secrets.BOT_PRIVATE_KEY }}

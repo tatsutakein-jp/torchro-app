@@ -1,0 +1,87 @@
+{
+  "cSpell.customDictionaries": {
+    "app-words": {
+      "name": "app-words",
+      "path": "${workspaceRoot}/.cspell/app-words.txt",
+      "description": "Words specific to this application",
+      "addWords": true,
+      "scope": "workspace"
+    },
+    "flutter-words": {
+      "name": "flutter-words",
+      "path": "${workspaceRoot}/.cspell/flutter-words.txt",
+      "description": "Flutter App Development Words",
+      "addWords": true,
+      "scope": "workspace"
+    },
+    "geats-words": {
+      "name": "geats-words",
+      "path": "${workspaceRoot}/.cspell/geats-words.txt",
+      "description": "Geats Words",
+      "addWords": true,
+      "scope": "workspace"
+    }
+  },
+  "cSpell.ignorePaths": [
+    "firebase_options*.dart",
+    "google-services.json",
+    "node_modules",
+    "package-lock.json",
+    "vscode-extension",
+    "*.gen.dart",
+    "*.lock",
+    "*.xcconfig",
+    "**/fvm",
+    "**/.pub-cache",
+    ".git/objects",
+    ".vscode",
+    ".vscode-insiders",
+    "**/windows",
+    "**/macos",
+    "**/linux",
+    "**/android",
+    "**/ios",
+    "melos.yaml",
+    ".env.*.dart",
+    "environment_constant.dart",
+    "firebase.config.json"
+  ],
+  "debug.openDebug": "openOnDebugBreak",
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.formatOnPaste": true,
+  "editor.rulers": [80],
+  "editor.renderWhitespace": "all",
+  "editor.renderControlCharacters": true,
+  "editor.minimap.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "[dart]": {
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "recentlyUsedByPrefix",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off",
+    "editor.codeActionsOnSave": [
+      "source.organizeImports",
+      "source.addMissingImports"
+    ]
+  },
+  "dart.flutterGenerateLocalizationsOnSave": "all",
+  "dart.debugExternalPackageLibraries": false,
+  "dart.debugSdkLibraries": false,
+  "dart.showSkippedTests": false,
+  "dart.runPubGetOnPubspecChanges": "never",
+  "dart.renameFilesWithClasses": "always",
+  "explorer.confirmDragAndDrop": false,
+  "files.watcherExclude": {
+    "**/.fvm": true
+  },
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "search.exclude": {
+    "**/.fvm": true,
+    "**/*.freezed.dart": true,
+    "**/*.g.dart": true
+  }
+}

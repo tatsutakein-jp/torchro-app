@@ -1,0 +1,28 @@
+name: 'Enable auto merge tatsutakeinjp-bot'
+
+on:
+  pull_request: ~
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  tatsutakeinjp-bot:
+    runs-on: ubuntu-22.04
+    if: github.event.pull_request.user.login == 'tatsutakeinjp-bot[bot]'
+    steps:
+      # https://github.com/marketplace/actions/create-github-app-token
+      - name: Create GitHub App Token
+        uses: actions/create-github-app-token@31c86eb3b33c9b601a1f60f98dcbfd1d70f379b4 # v1.10.3
+        id: app-token
+        with:
+          app-id: ${{ vars.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
+      - name: Enable auto-merge for Dependabot PRs
+        run: |
+          gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}

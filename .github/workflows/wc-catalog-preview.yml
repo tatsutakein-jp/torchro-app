@@ -1,0 +1,113 @@
+name: "Catalog Preview"
+
+on:
+  workflow_call:
+    inputs:
+      gh-app-id:
+        required: true
+        type: string
+    secrets:
+      gh-app-private-key:
+        required: true
+      cloudflare-account-id:
+        required: true
+      cloudflare-api-token:
+        required: true
+
+concurrency:
+  group: catalog-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    name: Preview
+    runs-on: ubuntu-22.04
+    steps:
+      # https://github.com/marketplace/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+        # https://github.com/marketplace/actions/create-github-app-token
+      - name: Create GitHub App Token
+        uses: actions/create-github-app-token@31c86eb3b33c9b601a1f60f98dcbfd1d70f379b4 # v1.10.3
+        id: app-token
+        with:
+          app-id: ${{ inputs.gh-app-id }}
+          private-key: ${{ secrets.gh-app-private-key }}
+
+      # https://github.com/marketplace/actions/comment-pull-request
+      - uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
+        with:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          message: |
+            ## Deploying torchro-app-catalog with &nbsp;<a href="https://pages.dev">Cloudflare Pages</a>
+
+            :dancer: Now building ${{ github.sha }} ... :dancer:
+
+            <a href="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}">github actions run **${{ github.run_id }}**</a>
+          comment_tag: deploy-catalog-preview
+          mode: upsert
+
+      # https://github.com/marketplace/actions/mise-action
+      - name: mise action
+        uses: jdx/mise-action@d6e32c1796099e0f1f3ac741c220a8b7eae9e5dd # v2.0.6
+
+      - name: setup pub
+        uses: ./.github/actions/setup-pub
+
+      - name: Build
+        run: flutter build web --release
+        working-directory: app/catalog
+
+      # https://github.com/marketplace/actions/deploy-to-cloudflare-workers-with-wrangler
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@f84a562284fc78278ff9052435d9526f9c718361 # v3.7.0
+        id: deploy
+        with:
+          apiToken: ${{ secrets.cloudflare-api-token }}
+          accountId: ${{ secrets.cloudflare-account-id }}
+          command: >
+            pages deploy ./app/catalog/build/web
+            --project-name=torchro-app-catalog
+            --branch=preview
+
+      # https://github.com/marketplace/actions/comment-pull-request
+      - if: steps.deploy.outcome == 'success'
+        uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
+        with:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          message: |
+            ## Deploying torchro-app-catalog with &nbsp;<a href="https://pages.dev">Cloudflare Pages</a>
+
+            <table><tr><td><strong>Latest commit:</strong> </td><td>
+            ${{ github.sha }} ${{ github.event.pull_request.head.sha && format('(i.e. {0} on {1})', github.event.pull_request.head.sha, 'preview') || '' }}
+            </td></tr>
+            <tr><td><strong>Status:</strong></td><td>&nbsp;✅&nbsp; Deploy successful!</td></tr>
+            <tr><td><strong>Preview URL:</strong></td><td>
+            <a href='${{ steps.deploy.outputs.deployment-url }}'>${{ steps.deploy.outputs.deployment-url }}</a>
+            </td></tr>
+            </table>
+
+            <a href="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}">github actions run **${{ github.run_id }}**</a>
+          comment_tag: deploy-catalog-preview
+          mode: recreate
+
+      # https://github.com/marketplace/actions/comment-pull-request
+      - if: failure()
+        uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
+        with:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          message: |
+            ## Deploying torchro-app-catalog with &nbsp;<a href="https://pages.dev">Cloudflare Pages</a>
+
+            <table><tr><td><strong>Latest commit:</strong> </td><td>
+            ${{ github.sha }}
+            </td></tr>
+            <tr><td><strong>Status:</strong></td><td>&nbsp;:warning:&nbsp; ${{ steps.deploy.outcome == 'failure' && 'Deploy' || '**Job**' }} failure!</td></tr>
+            </table>
+
+            Check the run result and/or Cloudflare Pages.
+
+            <a href="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}">github actions run **${{ github.run_id }}**</a>
+          comment_tag: deploy-catalog-preview
+          mode: recreate

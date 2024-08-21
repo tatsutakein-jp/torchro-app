@@ -1,0 +1,11 @@
+{
+  "close": "閉じる",
+  "description": "アプリの利用にあたって問題がある場合、以下のフォームより内容を送信することができます。\n送信された内容はサポートチームに共有され、今後のアップデートの参考とさせていただきます。\n問題が発生した画面や手順などを詳細に入力してください。",
+  "details": "内容",
+  "failedToSubmit": "お問い合わせの送信に失敗しました。",
+  "providingInformation": "情報提供について",
+  "providingInformationAgreement": "情報提供について同意する",
+  "providingInformationDescription": "アカウントに登録中のメールアドレスがお問い合わせ内容と併せて送信されます。\n当該メールアドレスは、お問い合わせへの回答目的以外には利用いたしません。",
+  "successfullySubmitted": "お問い合わせを送信しました。",
+  "contact": "お問い合わせ"
+}

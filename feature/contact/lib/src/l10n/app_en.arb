@@ -1,0 +1,11 @@
+{
+  "close": "Close",
+  "description": "If you have any problems using this application, you can submit them using the form below.\nYour submission will be shared with our support team and used as reference for future updates.\nPlease provide details of the screen and steps that caused the problem.",
+  "details": "Details",
+  "failedToSubmit": "Failed to Submit",
+  "providingInformation": "About Providing Information",
+  "providingInformationAgreement": "I agree to provide information.",
+  "providingInformationDescription": "The e-mail address registered in your account will be sent together with the content of your inquiry.\nWe will not use this e-mail address for any purpose other than to respond to your inquiry.",
+  "successfullySubmitted": "Successfully Submitted!",
+  "contact": "Contact"
+}

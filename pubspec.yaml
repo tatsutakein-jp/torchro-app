@@ -1,0 +1,13 @@
+name: torchro_app
+
+environment:
+  sdk: 3.5.0
+
+dependency_overrides:
+  # workaround
+  # yumemi_lints >=2.0.0 depends on file ^6.1.4 and melos 6.0.0 depends on file ^7.0.0
+  file: 7.0.0
+
+dev_dependencies:
+  melos: 6.1.0
+  yumemi_lints: 2.2.0

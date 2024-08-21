@@ -1,0 +1,41 @@
+name: "Pull Request Labeler"
+
+on:
+  pull_request_target:
+
+jobs:
+  triage:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      # https://github.com/marketplace/actions/label-manager-for-prs-and-issues-based-on-configurable-conditions
+      - name: Label manager for PRs and Issues based on configurable conditions
+        uses: srvaroa/labeler@1eec6d9e7c5fa5864840279978680302f955fc37 # v1.10.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  tatsutakeinjp-bot:
+    if: github.event.pull_request.user.login == 'tatsutakeinjp-bot[bot]'
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      # https://github.com/marketplace/actions/create-github-app-token
+      - name: Create GitHub App Token
+        uses: actions/create-github-app-token@31c86eb3b33c9b601a1f60f98dcbfd1d70f379b4 # v1.10.3
+        id: app-token
+        with:
+          app-id: ${{ vars.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
+      - name: Add labels to PR
+        run: |
+          gh pr edit "$NUMBER" --add-label "$LABELS"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.pull_request.number }}
+          LABELS: 'ignore for release'

@@ -1,0 +1,21 @@
+### ニュース一覧取得
+GET {{baseUrl}}/v1/news
+Content-Type: application/json;charset=utf-8
+
+### クエスト一覧取得
+GET {{baseUrl}}/v1/quests?userId={{userId}}
+Content-Type: application/json;charset=utf-8
+
+### アンケートの回答を作成
+POST {{baseUrl}}/api/v1/surveys/1/answers
+Content-Type: application/json;charset=utf-8
+
+{
+  "userId": "XXXXXXXXXX"
+}
+
+### 利用規約取得
+GET {{baseUrl}}/api/v1/terms/1
+Content-Type: application/json;charset=utf-8
+
+###

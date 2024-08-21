@@ -1,0 +1,16 @@
+name: "torchro-app"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./app/backend/Dockerfile
+    ports:
+      - "10629:8080"
+    networks:
+      - default
+      - torchro-network
+
+networks:
+  torchro-network:
+    external: true
