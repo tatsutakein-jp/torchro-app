@@ -19,6 +19,8 @@ clean: # Clean
 
 # Generate
 .PHONY: gen-labeler gen-labels
+gen-gitignore-files: # Generate gitignore target files.
+	@./tools/gen_gitignore_files.sh
 gen-labeler: # Generates the package part of `.github/labeler.yml`.
 	@bun run tools/gen-labeler.ts
 gen-labels: # Generates the package part of `.github/labels.yml`.

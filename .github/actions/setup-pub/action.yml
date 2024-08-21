@@ -4,6 +4,9 @@ description: 'Setup the Dart Pub cache for the workflow'
 runs:
   using: composite
   steps:
+    - name: setup gitignore target files
+      uses: ./.github/actions/setup-gitignore-target-files
+
     # https://github.com/marketplace/actions/cache
     - name: cache pub
       id: cache
