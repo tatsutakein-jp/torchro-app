@@ -26,8 +26,20 @@ dependencies:
   go_router: 14.2.3
   hooks_riverpod: 2.5.1
   intl: 0.19.0
+  lottie: 3.1.2
 
 dev_dependencies:
+  build_runner: 2.4.12
+  flutter_gen_runner: 5.6.0
   yumemi_lints: 2.2.0
 
 flutter:
+  assets:
+    - assets/lottie/
+
+flutter_gen:
+  output: lib/src/gen/assets
+  assets:
+    outputs:
+      package_parameter_enabled: true
+
