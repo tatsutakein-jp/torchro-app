@@ -12,9 +12,15 @@ ide:
 command:
   bootstrap:
     hooks:
-      post: melos run gen:app
+      post: melos hooks:post_bootstrap
 
 scripts:
+  # hooks
+  hooks:post_bootstrap:
+    description: bootstrap post hooks
+    steps:
+      - gen:mobile_app
+
   # gen
   gen:
     exec: dart run build_runner build --delete-conflicting-outputs
@@ -26,9 +32,9 @@ scripts:
     description: Run build_runner.
     packageFilters:
       dependsOn: "build_runner"
-  gen:app:
+  gen:mobile_app:
     run: |
-      melos exec --scope="app" \
+      melos exec --scope="mobile_app" \
         dart run build_runner build --delete-conflicting-outputs
     description: Run build_runner.
   gen:l10n:
