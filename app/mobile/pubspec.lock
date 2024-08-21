@@ -204,7 +204,7 @@ packages:
     source: path
     version: "1.0.0"
   core_data:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/data"
       relative: true
@@ -253,7 +253,7 @@ packages:
     source: path
     version: "1.0.0"
   core_network_model:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/network_model"
       relative: true
