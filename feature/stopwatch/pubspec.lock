@@ -87,7 +87,7 @@ packages:
     source: hosted
     version: "3.1.1"
   core_authenticator:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/authenticator"
       relative: true
@@ -101,21 +101,21 @@ packages:
     source: path
     version: "1.0.0"
   core_data:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/data"
       relative: true
     source: path
     version: "1.0.0"
   core_database:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/database"
       relative: true
     source: path
     version: "1.0.0"
   core_datastore:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/datastore"
       relative: true
@@ -143,14 +143,14 @@ packages:
     source: path
     version: "1.0.0"
   core_network:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/network"
       relative: true
     source: path
     version: "1.0.0"
   core_network_model:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/network_model"
       relative: true
@@ -286,10 +286,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "48d03a1e4887b00fe622695139246e3c778ac814eeb32421467b56d23fa64034"
+      sha256: ddc16d34b0d74cb313986918c0f0885a7ba2fc24d8fb8419de75f0015144ccfe
       url: "https://pub.dev"
     source: hosted
-    version: "14.2.6"
+    version: "14.2.3"
   hooks_riverpod:
     dependency: "direct main"
     description:

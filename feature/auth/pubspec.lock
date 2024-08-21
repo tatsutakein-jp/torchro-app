@@ -95,7 +95,7 @@ packages:
     source: hosted
     version: "3.1.1"
   core_authenticator:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/authenticator"
       relative: true
@@ -109,21 +109,21 @@ packages:
     source: path
     version: "1.0.0"
   core_data:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/data"
       relative: true
     source: path
     version: "1.0.0"
   core_database:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/database"
       relative: true
     source: path
     version: "1.0.0"
   core_datastore:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/datastore"
       relative: true
@@ -151,14 +151,14 @@ packages:
     source: path
     version: "1.0.0"
   core_network:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/network"
       relative: true
     source: path
     version: "1.0.0"
   core_network_model:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/network_model"
       relative: true
@@ -214,10 +214,10 @@ packages:
     dependency: transitive
     description:
       name: dio_web_adapter
-      sha256: "36c5b2d79eb17cdae41e974b7a8284fec631651d2a6f39a8a2ff22327e90aeac"
+      sha256: "33259a9276d6cea88774a0000cfae0d861003497755969c92faa223108620dc8"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "2.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -322,10 +322,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "48d03a1e4887b00fe622695139246e3c778ac814eeb32421467b56d23fa64034"
+      sha256: ddc16d34b0d74cb313986918c0f0885a7ba2fc24d8fb8419de75f0015144ccfe
       url: "https://pub.dev"
     source: hosted
-    version: "14.2.6"
+    version: "14.2.3"
   hooks_riverpod:
     dependency: "direct main"
     description:
@@ -743,10 +743,10 @@ packages:
     dependency: "direct dev"
     description:
       name: yumemi_lints
-      sha256: "5f88e2e5c052133631471b630bc8ef4cd77e7edef4d94b3a0d01d64470295c89"
+      sha256: "32793569af25ca58377c39cbde762ce14e1fe81859f0e3dde213d4e8e7715da2"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0"
+    version: "2.1.0"
 sdks:
   dart: "3.5.1"
   flutter: ">=3.24.1"
