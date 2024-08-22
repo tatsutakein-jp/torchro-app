@@ -1,7 +1,9 @@
 import 'package:core_designsystem/component.dart';
 import 'package:core_designsystem/space.dart';
+import 'package:feature_onboarding/src/gen/assets/assets.gen.dart';
 import 'package:feature_onboarding/src/gen/l10n/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 /// ウェルカムページ
 final class WelcomePage extends StatelessWidget {
@@ -11,22 +13,40 @@ final class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = L10n.of(context);
 
-    return Padding(
-      padding: const EdgeInsets.all(TorchroSpace.l),
-      child: Column(
-        children: [
-          SizedBox(
-            width: double.infinity,
-            child: Text(
-              l10n.welcome,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(TorchroSpace.l),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ...[
+              Text(
+                l10n.welcome,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
+              Lottie.asset(
+                Assets.lottie.workout,
+                width: 250,
+                height: 250,
+              ),
+              Text(
+                l10n.welcome,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ].expand(
+              (widget) => [
+                widget,
+                const Gap(TorchroSpace.m),
+              ],
             ),
-          ),
-          const Gap(16),
-        ],
+          ],
+        ),
       ),
     );
   }
