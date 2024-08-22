@@ -2,6 +2,7 @@ import 'package:app_mobile/initializer/app_config_initializer.dart';
 import 'package:app_mobile/router/app_navigation_bar.dart';
 import 'package:app_mobile/router/app_navigation_key.dart';
 import 'package:app_mobile/router/app_page_path.dart';
+import 'package:core_designsystem/component.dart';
 import 'package:core_domain/user_settings.dart';
 import 'package:core_model/config.dart';
 import 'package:core_model/feed.dart';
