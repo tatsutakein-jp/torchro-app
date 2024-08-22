@@ -35,8 +35,10 @@ final class LicenseRoute extends GoRouteData {
   static final $parentNavigatorKey = rootNavigatorKey;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const LicensePage();
+  Widget build(BuildContext context, GoRouterState state) => const LicensePage(
+        applicationName: '',
+        applicationIcon: LogoImage(),
+      );
 }
 
 class DialogPage<T> extends Page<T> {
