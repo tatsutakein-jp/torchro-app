@@ -1,6 +1,5 @@
-import 'package:core_designsystem/component.dart';
 import 'package:feature_timer/src/gen/l10n/l10n.dart';
-import 'package:feature_timer/src/ui/screen/timer/component/notification_section.dart';
+import 'package:feature_timer/src/ui/screen/timer/component/timer_input.dart';
 import 'package:flutter/material.dart';
 
 /// タイマー画面
@@ -26,25 +25,7 @@ final class TimerScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: CustomScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
-        slivers: [
-          ...[
-            SliverList(
-              delegate: SliverChildListDelegate([
-                NotificationSection(
-                  onMoreButtonPressed: () {},
-                ),
-              ]),
-            ),
-          ].expand(
-            (widget) => [
-              widget,
-              const SliverGap(8),
-            ],
-          ),
-        ],
-      ),
+      body: const TimerInput(),
     );
   }
 }
