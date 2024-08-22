@@ -15,8 +15,11 @@ class $AssetsImagesGen {
   /// File path: assets/images/icon.png
   AssetGenImage get icon => const AssetGenImage('assets/images/icon.png');
 
+  /// File path: assets/images/logo.webp
+  AssetGenImage get logo => const AssetGenImage('assets/images/logo.webp');
+
   /// List of all assets
-  List<AssetGenImage> get values => [icon];
+  List<AssetGenImage> get values => [icon, logo];
 }
 
 class Assets {
