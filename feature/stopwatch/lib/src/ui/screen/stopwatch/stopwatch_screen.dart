@@ -1,6 +1,6 @@
 import 'package:core_designsystem/component.dart';
 import 'package:feature_stopwatch/src/gen/l10n/l10n.dart';
-import 'package:feature_stopwatch/src/ui/screen/stopwatch/component/notification_section.dart';
+import 'package:feature_stopwatch/src/ui/screen/stopwatch/component/stopwatch_section.dart';
 import 'package:flutter/material.dart';
 
 /// ストップウォッチ画面
@@ -32,9 +32,7 @@ final class StopwatchScreen extends StatelessWidget {
           ...[
             SliverList(
               delegate: SliverChildListDelegate([
-                NotificationSection(
-                  onMoreButtonPressed: () {},
-                ),
+                StopwatchSection(),
               ]),
             ),
           ].expand(
