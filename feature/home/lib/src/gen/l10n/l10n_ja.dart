@@ -10,26 +10,14 @@ class L10nJa extends L10n {
   String get home => 'ホーム';
 
   @override
-  String get notification => 'おしらせ';
+  String get feed => 'おしらせ';
 
   @override
-  String get schedule => 'スケジュール';
+  String get upgrade => 'アップグレード';
 
   @override
-  String get today => '今日';
+  String get recent_timer => '直近のタイマー';
 
   @override
-  String get tomorrow => '明日';
-
-  @override
-  String get menu => 'メニュー';
-
-  @override
-  String get account => 'アカウント';
-
-  @override
-  String get anonymous => '氏名未設定';
-
-  @override
-  String get nonSchedule => '本日、明日の予定はありません';
+  String get review => 'レビュー';
 }
