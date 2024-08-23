@@ -103,53 +103,29 @@ abstract class L10n {
   /// **'ホーム'**
   String get home;
 
-  /// No description provided for @notification.
+  /// No description provided for @feed.
   ///
   /// In ja, this message translates to:
   /// **'おしらせ'**
-  String get notification;
+  String get feed;
 
-  /// No description provided for @schedule.
+  /// No description provided for @upgrade.
   ///
   /// In ja, this message translates to:
-  /// **'スケジュール'**
-  String get schedule;
+  /// **'アップグレード'**
+  String get upgrade;
 
-  /// No description provided for @today.
+  /// No description provided for @recent_timer.
   ///
   /// In ja, this message translates to:
-  /// **'今日'**
-  String get today;
+  /// **'直近のタイマー'**
+  String get recent_timer;
 
-  /// No description provided for @tomorrow.
+  /// No description provided for @review.
   ///
   /// In ja, this message translates to:
-  /// **'明日'**
-  String get tomorrow;
-
-  /// No description provided for @menu.
-  ///
-  /// In ja, this message translates to:
-  /// **'メニュー'**
-  String get menu;
-
-  /// No description provided for @account.
-  ///
-  /// In ja, this message translates to:
-  /// **'アカウント'**
-  String get account;
-
-  /// No description provided for @anonymous.
-  ///
-  /// In ja, this message translates to:
-  /// **'氏名未設定'**
-  String get anonymous;
-
-  /// No description provided for @nonSchedule.
-  ///
-  /// In ja, this message translates to:
-  /// **'本日、明日の予定はありません'**
-  String get nonSchedule;
+  /// **'レビュー'**
+  String get review;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

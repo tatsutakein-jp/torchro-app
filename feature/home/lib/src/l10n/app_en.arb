@@ -1,11 +1,7 @@
 {
   "home": "Home",
-  "notification": "Notification",
-  "schedule": "Schedule",
-  "today": "Today",
-  "tomorrow": "Tomorrow",
-  "menu": "Menu",
-  "account": "Account",
-  "anonymous": "Anonymous",
-  "nonSchedule": "I have no plans for today and tomorrow"
+  "feed": "Feed",
+  "upgrade": "Upgrade",
+  "recent_timer": "Recent Timer",
+  "review": "Review"
 }

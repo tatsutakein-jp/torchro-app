@@ -1,6 +1,9 @@
 import 'package:core_designsystem/component.dart';
+import 'package:core_designsystem/space.dart';
 import 'package:feature_home/src/gen/l10n/l10n.dart';
-import 'package:feature_home/src/ui/screen/home/component/notification_section.dart';
+import 'package:feature_home/src/ui/screen/home/component/my_timer_section.dart';
+import 'package:feature_home/src/ui/screen/home/component/review_section.dart';
+import 'package:feature_home/src/ui/screen/home/component/upgrade_section.dart';
 import 'package:flutter/material.dart';
 
 /// ホーム画面
@@ -26,21 +29,43 @@ final class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: Text('hogehoge'),
+        icon: const Icon(Icons.add),
+      ),
       body: CustomScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         slivers: [
           ...[
             SliverList(
               delegate: SliverChildListDelegate([
-                NotificationSection(
+                UpgradeSection(
+                  onMoreButtonPressed: () {},
+                ),
+              ]),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                RecentTimerSection(
+                  onMoreButtonPressed: () {},
+                ),
+              ]),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                ReviewSection(
                   onMoreButtonPressed: () {},
                 ),
               ]),
             ),
           ].expand(
             (widget) => [
-              widget,
-              const SliverGap(8),
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: TorchroSpace.l),
+                sliver: widget,
+              ),
+              const SliverGap(TorchroSpace.s),
             ],
           ),
         ],
