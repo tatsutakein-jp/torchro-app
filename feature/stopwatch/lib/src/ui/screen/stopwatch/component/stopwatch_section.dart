@@ -1,3 +1,5 @@
+import 'package:feature_stopwatch/src/extension/duration.dart';
+import 'package:feature_stopwatch/src/extension/int.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -6,37 +8,35 @@ final class StopwatchSection extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final isRunning = useState(false);
+    final stopwatch = useMemoized(Stopwatch.new);
     final elapsed = useState(Duration.zero);
-    final controller = useAnimationController(
-      vsync: useSingleTickerProvider(),
-      duration: const Duration(hours: 1),
-    );
 
     void start() {
       if (!isRunning.value) {
         isRunning.value = true;
-        controller.forward();
+        stopwatch.start();
       }
     }
 
     void stop() {
       if (isRunning.value) {
         isRunning.value = false;
-        controller.stop();
+        stopwatch.stop();
       }
     }
 
     void reset() {
       isRunning.value = false;
+      stopwatch.reset();
       elapsed.value = Duration.zero;
-      controller.reset();
     }
 
     useEffect(
       () {
-        final ticker = Ticker((time) {
+        final ticker = Ticker((_) {
+          // Trigger a rebuild every frame to update the UI
           if (isRunning.value) {
-            elapsed.value += const Duration(seconds: 1);
+            elapsed.value = stopwatch.elapsed;
           }
         });
         ticker.start();
@@ -56,25 +56,20 @@ final class StopwatchSection extends HookWidget {
               width: 200,
               height: 200,
               child: CircularProgressIndicator(
-                value: controller.value,
+                value: stopwatch.elapsedMilliseconds / 60000,
                 strokeWidth: 8,
-                color: Colors.blue,
               ),
             ),
             Column(
               children: [
                 Text(
-                  '${elapsed.value.inHours.toString().padLeft(2, '0')}:'
-                          '${elapsed.value.inMinutes.remainder(60).abs()}'
-                      .padLeft(2, '0'),
+                  '${stopwatch.elapsed.minutes.zeroPad}'
+                  ':'
+                  '${stopwatch.elapsed.seconds.zeroPad}',
                   style: const TextStyle(fontSize: 48),
                 ),
                 Text(
-                  elapsed.value.inSeconds
-                      .remainder(60)
-                      .abs()
-                      .toString()
-                      .padLeft(2, '0'),
+                  stopwatch.elapsed.milliseconds.zeroPad,
                   style: const TextStyle(fontSize: 32),
                 ),
               ],

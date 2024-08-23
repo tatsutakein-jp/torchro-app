@@ -1,4 +1,5 @@
 import 'package:core_designsystem/component.dart';
+import 'package:core_designsystem/space.dart';
 import 'package:feature_stopwatch/src/gen/l10n/l10n.dart';
 import 'package:feature_stopwatch/src/ui/screen/stopwatch/component/stopwatch_section.dart';
 import 'package:flutter/material.dart';
@@ -37,8 +38,12 @@ final class StopwatchScreen extends StatelessWidget {
             ),
           ].expand(
             (widget) => [
-              widget,
-              const SliverGap(8),
+              const SliverGap(TorchroSpace.s),
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: TorchroSpace.l),
+                sliver: widget,
+              ),
+              const SliverGap(TorchroSpace.s),
             ],
           ),
         ],
