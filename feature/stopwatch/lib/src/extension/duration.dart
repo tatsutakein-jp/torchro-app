@@ -9,5 +9,5 @@ extension DurationX on Duration {
   int get seconds => inSeconds.remainder(60);
 
   // ミリ秒
-  int get milliseconds => ((inMilliseconds % 1000) / 10).round();
+  int get milliseconds => ((inMilliseconds % 1000) / 10).floor();
 }
