@@ -5,7 +5,6 @@ final class StopwatchRoute extends GoRouteData {
   const StopwatchRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => StopwatchScreen(
-        onTapSettings: () {},
-      );
+  Widget build(BuildContext context, GoRouterState state) =>
+      const StopwatchScreen();
 }
