@@ -1,7 +1,7 @@
 name: torchro_app
 
 environment:
-  sdk: 3.5.1
+  sdk: 3.5.3
 
 dependency_overrides:
   # workaround
