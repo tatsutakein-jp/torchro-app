@@ -8,10 +8,14 @@ final class TimerSection extends HookWidget {
     super.key,
   }) : _onMoreButtonPressed = onMoreButtonPressed;
 
+  //
+  // ignore: unused_field
   final VoidCallback _onMoreButtonPressed;
 
   @override
   Widget build(BuildContext context) {
+    //
+    // ignore: unused_local_variable
     final l10n = L10n.of(context);
     // 初期のタイマー時間（2分）
     const initialDuration = Duration(minutes: 2);
