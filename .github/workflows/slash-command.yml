@@ -15,7 +15,7 @@ jobs:
   ########################################
   catalog-command:
     name: Catalog Command
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     outputs:
       continue: ${{ steps.catalog.outputs.continue }}
     steps:
@@ -56,7 +56,7 @@ jobs:
   ########################################
   gen-command:
     name: Gen Command
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     outputs:
       continue: ${{ steps.gen-command.outputs.continue }}
     steps:
