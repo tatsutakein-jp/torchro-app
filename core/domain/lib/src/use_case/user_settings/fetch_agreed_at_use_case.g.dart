@@ -7,7 +7,7 @@ part of 'fetch_agreed_at_use_case.dart';
 // **************************************************************************
 
 String _$fetchAgreedAtUseCaseHash() =>
-    r'f2a65eb88fa851e8b512a419c005ed85abd6de2b';
+    r'41f2db8bd0886bb18a71614c48b5c89338cd678c';
 
 /// 同意日時を取得する
 ///
@@ -23,6 +23,8 @@ final fetchAgreedAtUseCaseProvider = AutoDisposeProvider<DateTime?>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef FetchAgreedAtUseCaseRef = AutoDisposeProviderRef<DateTime?>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
