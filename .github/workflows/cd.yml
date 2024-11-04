@@ -19,7 +19,7 @@ jobs:
 
       # https://github.com/marketplace/actions/mise-action
       - name: mise action
-        uses: jdx/mise-action@a4cfebde9ceb9b49b54db1d148fa86a52e1b7fab # v2.1.4
+        uses: jdx/mise-action@3cea416127de5a8efd9642eb725267750e5c09b7 # v2.1.5
 
       - name: setup pub
         uses: ./.github/actions/setup-pub
@@ -30,7 +30,7 @@ jobs:
 
       # https://github.com/marketplace/actions/deploy-to-cloudflare-workers-with-wrangler
       - name: Publish to Cloudflare Pages
-        uses: cloudflare/wrangler-action@b2a0191ce60d21388e1a8dcc968b4e9966f938e1 # v3.11.0
+        uses: cloudflare/wrangler-action@e998fe3d9a589b7a05d3ca40c0c74cb7435e2ceb # v3.12.0
         id: deploy
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
