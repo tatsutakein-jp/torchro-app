@@ -1,0 +1,31 @@
+# Miscellaneous
+.DS_Store
+
+# Repo
+dist/
+test-caches/
+completions/
+manpages/
+*.txt
+*.swift
+*.prof
+*.download
+
+# Docs
+public
+site/
+www/docs/static/releases*.json
+
+# Other
+*.unstripped
+*.bndb
+*.lock
+venv/
+
+# Unicorn EMU
+unicorn2/
+
+.idea/
+.vscode/
+test-caches/
+dist/
