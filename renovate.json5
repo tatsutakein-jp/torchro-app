@@ -55,7 +55,8 @@
         "*"
       ],
       "excludePackageNames": [
-        "collection"
+        "collection",
+        "intl",
       ],
       "matchUpdateTypes": [
         "minor",
@@ -67,6 +68,13 @@
       "matchPackageNames": [
         "dart",
         "flutter",
+      ],
+    },
+    {
+      "groupName": "envied",
+      "matchPackageNames": [
+        "envied",
+        "envied_generator",
       ],
     },
     {
