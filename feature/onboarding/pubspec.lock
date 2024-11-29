@@ -26,10 +26,10 @@ packages:
     dependency: transitive
     description:
       name: anyhow
-      sha256: edee1f48becc39e059344740a34c45382e93f84354bfcfd65a6ac5f0453f28c7
+      sha256: "05e046d1f2cea2fb72e713429dbb8b02764c92a1df35a5b9220a62d41fa106fc"
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.1"
+    version: "1.3.2"
   archive:
     dependency: transitive
     description:
@@ -183,7 +183,7 @@ packages:
     source: hosted
     version: "3.1.2"
   core_authenticator:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/authenticator"
       relative: true
@@ -197,21 +197,21 @@ packages:
     source: path
     version: "1.0.0"
   core_data:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/data"
       relative: true
     source: path
     version: "1.0.0"
   core_database:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/database"
       relative: true
     source: path
     version: "1.0.0"
   core_datastore:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/datastore"
       relative: true
@@ -239,14 +239,14 @@ packages:
     source: path
     version: "1.0.0"
   core_network:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/network"
       relative: true
     source: path
     version: "1.0.0"
   core_network_model:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/network_model"
       relative: true
@@ -377,10 +377,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_svg
-      sha256: "578bd8c508144fdaffd4f77b8ef2d8c523602275cd697cc3db284dbd762ef4ce"
+      sha256: "54900a1a1243f3c4a5506d853a2b5c2dbc38d5f27e52a52618a8054401431123"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.14"
+    version: "2.0.16"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -422,10 +422,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "8ae664a70174163b9f65ea68dd8673e29db8f9095de7b5cd00e167c621f4fef5"
+      sha256: "8660b74171fafae4aa8202100fa2e55349e078281dadc73a241eb8e758534d9d"
       url: "https://pub.dev"
     source: hosted
-    version: "14.6.0"
+    version: "14.6.1"
   graphs:
     dependency: transitive
     description:
@@ -658,14 +658,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.6.1"
+  rust:
+    dependency: transitive
+    description:
+      name: rust
+      sha256: a5331e469c289e104b2e58f8760ba59bde704aad1ee292a4c0ccc72c683f6135
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.3.7"
   rust_core:
     dependency: transitive
     description:
       name: rust_core
-      sha256: "1a2d77ea819742dbc73e536baab052938c134b3cc72137460d0844a583cda7c2"
+      sha256: "39e893e58d66da796dab4001815891a11c3e0d2f2f83353362822ebd72b902dc"
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.3"
+    version: "1.3.7"
   shelf:
     dependency: transitive
     description:
@@ -678,10 +686,10 @@ packages:
     dependency: transitive
     description:
       name: shelf_web_socket
-      sha256: "073c147238594ecd0d193f3456a5fe91c4b0abbcc68bf5cd95b36c4e194ac611"
+      sha256: cc36c297b52866d203dbf9332263c94becc2fe0ceaa9681d07b6ef9807023b67
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.1"
   simple_logger:
     dependency: transitive
     description:
@@ -763,18 +771,18 @@ packages:
     dependency: transitive
     description:
       name: test_api
-      sha256: "664d3a9a64782fcdeb83ce9c6b39e78fd2971d4e37827b9b06c3aa1edc5e760c"
+      sha256: fb31f383e2ee25fbbfe06b40fe21e1e458d14080e3c67e7ba0acfde4df4e0bbd
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.3"
+    version: "0.7.4"
   time:
     dependency: transitive
     description:
       name: time
-      sha256: ad8e018a6c9db36cb917a031853a1aae49467a93e0d464683e029537d848c221
+      sha256: "370572cf5d1e58adcb3e354c47515da3f7469dac3a95b447117e728e7be6f461"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.4"
+    version: "2.1.5"
   timing:
     dependency: transitive
     description:
@@ -795,10 +803,10 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics
-      sha256: "773c9522d66d523e1c7b25dfb95cc91c26a1e17b107039cfe147285e92de7878"
+      sha256: "27d5fefe86fb9aace4a9f8375b56b3c292b64d8c04510df230f849850d912cb7"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.14"
+    version: "1.1.15"
   vector_graphics_codec:
     dependency: transitive
     description:
@@ -811,10 +819,10 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics_compiler
-      sha256: "26d520739b7c6b5d2a2b3274427874a8390831fd4cd5bb8cfbd7d913477d3a2e"
+      sha256: "1b4b9e706a10294258727674a340ae0d6e64a7231980f9f9a3d12e4b42407aad"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.14"
+    version: "1.1.16"
   vector_math:
     dependency: transitive
     description:
