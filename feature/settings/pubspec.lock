@@ -95,7 +95,7 @@ packages:
     source: hosted
     version: "3.1.2"
   core_authenticator:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/authenticator"
       relative: true
@@ -109,21 +109,21 @@ packages:
     source: path
     version: "1.0.0"
   core_data:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/data"
       relative: true
     source: path
     version: "1.0.0"
   core_database:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/database"
       relative: true
     source: path
     version: "1.0.0"
   core_datastore:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/datastore"
       relative: true
@@ -151,14 +151,14 @@ packages:
     source: path
     version: "1.0.0"
   core_network:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/network"
       relative: true
     source: path
     version: "1.0.0"
   core_network_model:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/network_model"
       relative: true
@@ -615,10 +615,10 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics
-      sha256: "773c9522d66d523e1c7b25dfb95cc91c26a1e17b107039cfe147285e92de7878"
+      sha256: "27d5fefe86fb9aace4a9f8375b56b3c292b64d8c04510df230f849850d912cb7"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.14"
+    version: "1.1.15"
   vector_graphics_codec:
     dependency: transitive
     description:
@@ -631,10 +631,10 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics_compiler
-      sha256: "26d520739b7c6b5d2a2b3274427874a8390831fd4cd5bb8cfbd7d913477d3a2e"
+      sha256: "1b4b9e706a10294258727674a340ae0d6e64a7231980f9f9a3d12e4b42407aad"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.14"
+    version: "1.1.16"
   vector_math:
     dependency: transitive
     description:
