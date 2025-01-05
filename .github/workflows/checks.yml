@@ -31,7 +31,7 @@ jobs:
           private-key: ${{ secrets.BOT_PRIVATE_KEY }}
 
       # https://github.com/marketplace/actions/actionlint-with-reviewdog
-      - uses: reviewdog/action-actionlint@534eb894142bcf31616e5436cbe4214641c58101 # v1.61.0
+      - uses: reviewdog/action-actionlint@af17f9e3640ac863dbcc515d45f5f35d708d0faf # v1.62.0
         with:
           github_token: ${{ steps.app-token.outputs.token }}
           fail_on_error: true
